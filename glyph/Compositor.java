@@ -4,5 +4,6 @@ package glyph;
  * composing Glyphs together.
  */
 public interface Compositor {
-    
+    public void setComposition(Composition c);
+    public void compose();
 }

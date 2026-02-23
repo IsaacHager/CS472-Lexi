@@ -9,8 +9,16 @@ import window.Window;
 * @version 1.0
 */
 public abstract class Glyph {
+    protected int x;
+    protected int y;
 
     public void draw(Window window) {
         // TODO: implement method
     }
+
+    public void insert(Glyph g, int pos) {
+
+    }
+
+    // Maybe include compose() and composeRoot()?
 }
