@@ -4,10 +4,10 @@ import window.SwingWindow;
 /**
  * Lexi editor for creating and editing text files. Supports
  * formatting of text in rows and columns and rectangle characters.
+ * 
+ * Represents the 'Client' part of the Composite(163) pattern.
  * @author Isaachager
  * @version 1.0
- * 
- * TODO: For homework- mention which patterns are used in each class
  */
 public class Lexi {
     
@@ -28,7 +28,5 @@ public class Lexi {
         column.compose();
 
         window.setContents(column);
-
-
     }
 }

@@ -1,13 +1,22 @@
 package glyph;
 
 import window.*;
+
 /**
- * Visual rectangle element
+ * Visual rectangle element.
+ * 
+ * Functions as the 'Leaf' part of the Composite(163) pattern.
+ * @author Isaachager
  */
 public class Rectangle extends Glyph {
-    int height;
-    int width;
+    private int height;
+    private int width;
 
+    /**
+     * Basic constructor
+     * @param height
+     * @param width
+     */
     public Rectangle(int height, int width) {
         this.height = height;
         this.width = width;
@@ -15,7 +24,7 @@ public class Rectangle extends Glyph {
 
     @Override
     public void draw(Window w) {
-        w.drawRectangle(bounds.position().x(), bounds.position().y(), width, height);
+        w.drawRectangle(bounds().position().x(), bounds().position().y(), width, height);
     }
 
     @Override

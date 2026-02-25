@@ -1,41 +1,82 @@
 package glyph;
+
+/**
+ * Represents an area that begins at a point and extends for to a width and height.
+ * @author Isaachager
+ */
 public class Bounds {
     private Point position;
     private int width;
     private int height;
 
+    /**
+     * Basic constructor
+     * @param pos top-left corner
+     * @param width
+     * @param height
+     */
     public Bounds(Point pos, int width, int height) {
         this.position = pos;
         this.width = width;
         this.height = height;
     }
 
-    public Bounds(Bounds b) {
-        position = new Point(b.position());
+    /**
+     * Copy constructor
+     * @param bounds
+     */
+    public Bounds(Bounds bounds) {
+        position = new Point(bounds.position());
+        width = bounds.width();
+        height = bounds.height();
     }
 
+    /**
+     * Returns a copy of position
+     * @return position
+     */
     public Point position() {
-        return position;
+        return new Point(position);
     }
 
-    public void setPosition(Point p) {
-        position = p;
+    /**
+     * Sets the position
+     * @param position
+     */
+    public void setPosition(Point position) {
+        this.position = position;
     }
 
+    /**
+     * Returns width
+     * @return width
+     */
     public int width() {
         return width;
     }
 
-    public void setWidth(int x) {
-        width = x;
+    /**
+     * Sets the width
+     * @param width width
+     */
+    public void setWidth(int width) {
+        this.width = width;
     }
 
+    /**
+     * Returns height
+     * @return height
+     */
     public int height() {
         return height;
     }
 
-    public void setHeight(int y) {
-        height = y;
+    /**
+     * Sets the height
+     * @param height
+     */
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     @Override

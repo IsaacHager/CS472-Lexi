@@ -1,36 +1,48 @@
 package glyph;
 
-import window.Window;
+import window.*;
+
 /**
- * 
+ * Represents a glyph that can be composed. That is,
+ * it can format itself in relation to its children.
+ * @author Isaachager
  */
-public class Composition extends CompositeGlyph {
+public abstract class Composition extends CompositeGlyph {
     private Compositor comp;
     private Window window;
 
-    public Composition() {
+    protected Composition() {
         super();
         this.comp = new SimpleCompositor();
         comp.setComposition(this);
     }
 
-    public void compose() {
-        comp.compose();
-    }
+    /**
+     * Returns updated cursor bounds given a child
+     * @param cursor
+     * @param child
+     * @return cursor bounds
+     */
+    public abstract Bounds cursorNext(Bounds cursor, Glyph child);
 
+    /**
+     * Returns the window associated with this Composition
+     * @return window
+     */
     public Window window() {
         return window;
     }
 
-    public void setWindow(Window w) {
-        window = w;
+    /**
+     * Sets the window to use
+     * @param window
+     */
+    public void setWindow(Window window) {
+        this.window = window;
     }
 
-    public void adjustBounds(Glyph child) {
-        
-    }
-
-    public Point nextCursorPos() {
-        return null; // TODO throw error
+    @Override
+    public void compose() {
+        comp.compose();
     }
 }

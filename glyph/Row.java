@@ -1,37 +1,24 @@
 package glyph;
 
 import window.*;
+
 /**
  * Horizontal container for Glyphs
+ * @author Isaachager
  */
 public class Row extends Composition {
 
+    /**
+     * Basic constructor
+     */
     public Row() {
         super();
     }
 
     @Override
-    public void draw(Window window) {
-        for (Glyph g : children) {
-            g.draw(window);
-        }
+    public Bounds cursorNext(Bounds cursor, Glyph child) {
+        Point newAnchor = new Point(cursor.position().x() + child.bounds().width(), cursor.position().y());
+        int maxHeight = Math.max(cursor.height(), child.bounds().height());
+        return new Bounds(newAnchor, 0, maxHeight);
     }
-
-    @Override
-    public void adjustBounds(Glyph child) {
-        int childWidth = child.bounds().width();
-        int childHeight = child.bounds().height();
-        int newWidth = bounds().width() + childWidth;
-        int newHeight = Math.max(bounds().height(), childHeight);
-
-        Bounds newBounds = new Bounds(bounds().position(), newWidth, newHeight);
-        setBounds(newBounds);
-    }
-
-    @Override
-    public Point nextCursorPos() {
-        return new Point(bounds.position().x() + bounds.width(), bounds.position().y());
-    }
-
-    // TODO: formatting
 }

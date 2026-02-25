@@ -6,17 +6,26 @@ import java.util.List;
 import window.*;
 
 /**
- * A version of a Glyph that can be composed. That is,
- * it can contain other Glyphs and is able to format
- * itself in reference to its children.
+ * A version of a Glyph that can have children. That is,
+ * it can contain other Glyphs.
+ * 
+ * Functions as the 'Composite' part of the Composite(163) pattern.
  * @author Isaachager
- * @version 1.0
  */
-public class CompositeGlyph extends Glyph {
+public abstract class CompositeGlyph extends Glyph {
     protected List<Glyph> children;
 
-    public CompositeGlyph() {
+    protected CompositeGlyph() {
+        super();
         children = new LinkedList<Glyph>();
+    }
+    
+    /**
+     * Returns a copy of this Glyph's children
+     * @return children
+     */
+    public List<Glyph> children() {
+        return new LinkedList<Glyph>(children);
     }
 
     @Override
@@ -31,14 +40,16 @@ public class CompositeGlyph extends Glyph {
         children.add(pos, g);
     }
 
-    public List<Glyph> children() {
-        return new LinkedList<Glyph>(children);
+    @Override
+    public Glyph remove(int pos) {
+        return children.remove(pos);
     }
 
     @Override
-    public void setSize(Window w) {
-        for (Glyph child : children) {
-            child.setSize(w);
-        }
+    public Glyph childAt(int pos) {
+        return children.get(pos);
     }
+
+    @Override
+    public void setSize(Window w) {}
 }

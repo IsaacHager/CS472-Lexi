@@ -2,12 +2,13 @@ package glyph;
 import window.Window;
 
 /**
-* A Glyph is the most basic element of a document, which
-* can be implemented in many different ways (e.g. a character,
-* a container like a row or a column, etc.).
-* @author Isaachager
-* @version 1.0
-*/
+ * A Glyph is the most basic element of a document, which
+ * can be implemented in many different ways (e.g. a character,
+ * a container like a row or a column, etc.).
+ *
+ * Functions as the 'Component' part of the Composite(163) pattern.
+ * @author Isaachager
+ */
 public abstract class Glyph {
     protected Bounds bounds;
 
@@ -15,32 +16,63 @@ public abstract class Glyph {
         bounds = new Bounds(new Point(0, 0), 0, 0);
     }
 
-    public void draw(Window window) {
-        // TODO: implement method
-    }
+    /**
+     * Draws this Glyph on the given window
+     * @param window
+     */
+    public abstract void draw(Window window);
+    
+    /**
+     * This Glyph sets its bounds according to the given window
+     * @param window
+     */
+    public abstract void setSize(Window window);
 
-    public void insert(Glyph g, int pos) {
+    /**
+     * This Glyph recursively arranges its children and sets its own size accordingly
+     */
+    public void compose() {}
 
-    }
+    /**
+     * Inserts a child Glyph at a given position
+     * @param g
+     * @param pos
+     */
+    public void insert(Glyph g, int pos) {}
 
+    /**
+     * Removes and returns the Glyph at the given position
+     * @param pos
+     */
+    public Glyph remove(int pos) { return null; } // TODO throw error
+
+    /**
+     * Returns the Glyph at the given position in the child list
+     * @param pos
+     */
+    public Glyph childAt(int pos) { return null; } // TODO throw error
+
+    /**
+     * Sets starting position (top-left corner) for this Glyph
+     * @param p
+     */
     public void setPosition(Point p) {
         bounds.setPosition(p);
     }
 
+    /**
+     * Returns a copy of this Glyph's bounds
+     * @return bounds
+     */
     public Bounds bounds() {
-        return bounds;
+        return new Bounds(bounds);
     }
 
-    public void setBounds(Bounds b) {
-        bounds = b;
+    /**
+     * Sets this Glyph's bounds
+     * @param bounds
+     */
+    public void setBounds(Bounds bounds) {
+        this.bounds = bounds;
     }
-
-    public void setSize(Window w) {
-    }
-
-    public void compose() {
-
-    }
-
-    // Maybe include compose() and composeRoot()?
 }
