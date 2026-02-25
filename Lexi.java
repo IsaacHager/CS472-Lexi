@@ -25,7 +25,7 @@ public class Lexi {
         column.insert(row, 2);
         column.insert(new Character('z'), 3);
         column.setWindow(window);
-        column.compose();
+        row.composeRoot();
 
         window.setContents(column);
     }

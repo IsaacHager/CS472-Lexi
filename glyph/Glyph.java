@@ -11,6 +11,7 @@ import window.Window;
  */
 public abstract class Glyph {
     protected Bounds bounds;
+    protected Glyph parent;
 
     protected Glyph() {
         bounds = new Bounds(new Point(0, 0), 0, 0);
@@ -32,6 +33,17 @@ public abstract class Glyph {
      * This Glyph recursively arranges its children and sets its own size accordingly
      */
     public void compose() {}
+
+    /**
+     * This glyph navigates to the root and calls compose
+     */
+    public void composeRoot() {
+        Glyph next = this;
+        while (next.parent != null) {
+            next = next.parent;
+        }
+        next.compose();
+    }
 
     /**
      * Inserts a child Glyph at a given position
