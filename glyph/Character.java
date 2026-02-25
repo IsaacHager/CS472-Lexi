@@ -13,6 +13,12 @@ public class Character extends Glyph {
 
     @Override
     public void draw(Window w) {
-        w.drawCharacter(c, x, y);
+        w.drawCharacter(c, bounds.position().x(), bounds.position().y());
+    }
+    
+    @Override
+    public void setSize(Window w) {     
+        bounds.setHeight(w.charHeight(c));
+        bounds.setWidth(w.charWidth(c));
     }
 }

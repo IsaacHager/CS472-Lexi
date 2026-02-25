@@ -12,7 +12,7 @@ import window.*;
  * @author Isaachager
  * @version 1.0
  */
-public class CompositeGlyph extends Composition {
+public class CompositeGlyph extends Glyph {
     protected List<Glyph> children;
 
     public CompositeGlyph() {
@@ -29,5 +29,16 @@ public class CompositeGlyph extends Composition {
     @Override
     public void insert(Glyph g, int pos) {
         children.add(pos, g);
+    }
+
+    public List<Glyph> children() {
+        return new LinkedList<Glyph>(children);
+    }
+
+    @Override
+    public void setSize(Window w) {
+        for (Glyph child : children) {
+            child.setSize(w);
+        }
     }
 }

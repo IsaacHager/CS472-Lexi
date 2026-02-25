@@ -14,10 +14,21 @@ public class Lexi {
     // TODO: placeholder method
     public static void main(String[] args) {
         SwingWindow window = new SwingWindow("Lexi");
-        CompositeGlyph row = new Row();
-        row.insert(new Rectangle(100, 200), 0);
+        Composition row = new Row();
+        row.insert(new Rectangle(10, 20), 0);
         row.insert(new Character('b'), 1);
-        window.setContents(row);
+        row.insert(new Character('c'), 1);
+        row.setWindow(window);
+        Composition column = new Column();
+        column.insert(new Character('x'), 0);
+        column.insert(new Character('y'), 1);
+        column.insert(row, 2);
+        column.insert(new Character('z'), 3);
+        column.setWindow(window);
+        column.compose();
+
+        window.setContents(column);
+
 
     }
 }

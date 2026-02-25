@@ -5,18 +5,22 @@ import window.*;
  * Visual rectangle element
  */
 public class Rectangle extends Glyph {
-    private int height;
-    private int width;
+    int height;
+    int width;
 
     public Rectangle(int height, int width) {
         this.height = height;
         this.width = width;
-        x = 0;
-        y = 0;
     }
 
     @Override
-    public void draw(Window window) {
-        window.drawRectangle(x, y, width, height);
+    public void draw(Window w) {
+        w.drawRectangle(bounds.position().x(), bounds.position().y(), width, height);
+    }
+
+    @Override
+    public void setSize(Window w) {
+        bounds.setHeight(height);
+        bounds.setWidth(width);
     }
 }
