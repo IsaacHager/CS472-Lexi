@@ -15,6 +15,10 @@ public class SimpleCompositor implements Compositor {
 
     @Override
     public void compose() {
+        
+        if (c.parent != null && c.parent.window() != null) {    // Inherit window from parent
+            this.c.setWindow(this.c.parent.window());
+        }
 
         Bounds cursor = new Bounds(c.bounds().position(), 0, 0);
 
@@ -36,7 +40,7 @@ public class SimpleCompositor implements Compositor {
         int trueWidth = cursor.position().x() - c.bounds().position().x() + cursor.width();
         int trueHeight = cursor.position().y() - c.bounds().position().y() + cursor.height();
         Bounds newBounds = new Bounds(c.bounds().position(), trueWidth, trueHeight);
-        c.setBounds(newBounds);    
+        c.setBounds(newBounds);
     }
     
 }

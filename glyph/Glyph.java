@@ -11,7 +11,7 @@ import window.Window;
  */
 public abstract class Glyph {
     protected Bounds bounds;
-    protected Glyph parent;
+    protected CompositeGlyph parent;
 
     protected Glyph() {
         bounds = new Bounds(new Point(0, 0), 0, 0);

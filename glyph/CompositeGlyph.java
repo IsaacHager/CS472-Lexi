@@ -19,6 +19,12 @@ public abstract class CompositeGlyph extends Glyph {
         super();
         children = new LinkedList<Glyph>();
     }
+
+    /**
+     * Returns the window associated with this Composition
+     * @return window
+     */
+    public abstract Window window();
     
     /**
      * Returns a copy of this Glyph's children

@@ -26,19 +26,16 @@ public abstract class Composition extends CompositeGlyph {
     public abstract Bounds cursorNext(Bounds cursor, Glyph child);
 
     /**
-     * Returns the window associated with this Composition
-     * @return window
-     */
-    public Window window() {
-        return window;
-    }
-
-    /**
      * Sets the window to use
      * @param window
      */
     public void setWindow(Window window) {
         this.window = window;
+    }
+
+    @Override
+    public Window window() {
+        return window;
     }
 
     @Override
