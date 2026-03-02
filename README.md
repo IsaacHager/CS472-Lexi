@@ -1,4 +1,4 @@
-# Project #3: Javascript
+# Homework #1 - Lexi using Composite and Strategy Patterns
 
 * Author: Isaac Hager
 * Class: CS472 Section #001
