@@ -20,6 +20,14 @@ simple because of the structure that I was working with. I liked the Strategy
 pattern because it's simple to design and I can already see the benefit of
 how easy it will be to add new Compositor strategies.
 
+Wow, it really is easy to add functionality to a program that was designed
+with patterns. It was a very unintrusive addition. The only changes I made
+to other classes were optimization changes unrelated to Decorator. I was
+able to do the implementation very quickly. The only part that I really had
+to work through and think about was how to add padding in the compose() method.
+I may very well end up changing the implementation after recieving review, as
+I'm not sure if it's a good implementation.
+
 ## Compiling and Using
 
 Navigate to the root directory containing Lexi and all of its dependencies.
@@ -42,3 +50,4 @@ and the Lexi window should open.
 
 Composite(163) pattern
 Strategy(315) pattern
+Decorator(175) pattern
