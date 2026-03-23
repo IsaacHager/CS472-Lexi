@@ -8,11 +8,12 @@ import window.*;
  */
 public class Row extends Composition {
 
-    /**
-     * Basic constructor
-     */
-    public Row() {
-        super();
+    public Row() {}
+
+    public Row(String string, Window window) {
+        super(window);
+        for (int i=0; i<string.length(); i++)
+            insert(new Character(string.charAt(i)));
     }
 
     @Override

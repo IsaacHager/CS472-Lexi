@@ -23,7 +23,7 @@ public class SimpleCompositor implements Compositor {
         Bounds cursor = new Bounds(c.bounds().position(), 0, 0);
 
         // create cursor based on parent
-        for (Glyph child : c.children()) {
+        for (Glyph child : c.children) {
             // ask (leaf) child to set size, based on window
             child.setSize(c.window());
 

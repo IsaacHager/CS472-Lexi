@@ -8,11 +8,12 @@ import window.Window;
  */
 public class Column extends Composition {
 
-    /**
-     * Basic constructor
-     */
-    public Column() {
-        super();
+    public Column() {}
+
+    public Column(String[] strings, Window window) {
+        super(window);
+        for (int i=0; i<strings.length; i++)
+            insert(new Row(strings[i],window));
     }
 
     @Override

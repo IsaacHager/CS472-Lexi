@@ -14,28 +14,37 @@ public class Lexi {
     // TODO: placeholder method
     public static void main(String[] args) {
         SwingWindow window = new SwingWindow("Lexi");
-        Composition column = new Column();
-        column.insert(new Character('X'), 0);
-        column.insert(new Character('Y'), 1);
-        column.insert(new Character('Z'), 2);
+        String[] content = {
+            "This is a",
+            "border demonstration.",
+            "Scroller too!"
+        };
+        Composition column = new Column(content, window);
+        Composition scrollbar = new ScrollbarDecorator(column, 10);
+        scrollbar.setWindow(window);
+        Composition border = new BorderDecorator(scrollbar, 3);
+        border.setWindow(window);
         // column.setWindow(window);
+        // column.insert(new Character('X'), 0);
+        // column.insert(new Character('Y'), 1);
+        // column.insert(new Character('Z'), 2);
         Composition row = new Row();
+        row.setWindow(window);
         row.insert(new Rectangle(20, 10), 0);
         row.insert(new Character('a'), 0);
-        row.insert(column, 2);
+        row.insert(border, 2);
         row.insert(new Character('b'), 3);
-        // row.setWindow(window);
         Composition row1 = new Row();
+        row1.setWindow(window);
         row1.insert(new Character('x'), 0);
         row1.insert(new Rectangle(10, 20), 1);
         row1.insert(new Character('y'), 2);
-        // row1.setWindow(window);
         Composition column1 = new Column();
+        column1.setWindow(window);
         column1.insert(row, 0);
         column1.insert(row1, 1);
-        column1.setWindow(window);
-        
-        row.composeRoot();
+
+        border.composeRoot();
 
         window.setContents(column1);
     }

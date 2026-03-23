@@ -16,22 +16,7 @@ public abstract class CompositeGlyph extends Glyph {
     protected List<Glyph> children;
 
     protected CompositeGlyph() {
-        super();
         children = new LinkedList<Glyph>();
-    }
-
-    /**
-     * Returns the window associated with this Composition
-     * @return window
-     */
-    public abstract Window window();
-    
-    /**
-     * Returns a copy of this Glyph's children
-     * @return children
-     */
-    public List<Glyph> children() {
-        return new LinkedList<Glyph>(children);
     }
 
     @Override
@@ -39,6 +24,11 @@ public abstract class CompositeGlyph extends Glyph {
         for (Glyph g : children) {
             g.draw(w);
         }
+    }
+
+    public void insert(Glyph g) {
+        children.add(g);
+        g.parent = this;
     }
 
     @Override

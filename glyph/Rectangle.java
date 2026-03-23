@@ -32,4 +32,9 @@ public class Rectangle extends Glyph {
         bounds.setHeight(height);
         bounds.setWidth(width);
     }
+
+    @Override
+    public Bounds cursorNext(Bounds cursor, Glyph child) {
+        return cursor;
+    }
 }

@@ -11,7 +11,7 @@ import window.Window;
  */
 public abstract class Glyph {
     protected Bounds bounds;
-    protected CompositeGlyph parent;
+    protected Glyph parent;
 
     protected Glyph() {
         bounds = new Bounds(new Point(0, 0), 0, 0);
@@ -46,23 +46,37 @@ public abstract class Glyph {
     }
 
     /**
+     * Returns updated cursor bounds given a child
+     * @param cursor
+     * @param child
+     * @return cursor bounds
+     */
+    public abstract Bounds cursorNext(Bounds cursor, Glyph child);
+
+    /**
      * Inserts a child Glyph at a given position
      * @param g
      * @param pos
      */
-    public void insert(Glyph g, int pos) {}
+    public void insert(Glyph g, int pos) {
+        throw new IllegalCallerException("Cannot call insert on Glyph");
+    }
 
     /**
      * Removes and returns the Glyph at the given position
      * @param pos
      */
-    public Glyph remove(int pos) { return null; } // TODO throw error
+    public Glyph remove(int pos) { 
+        throw new IllegalCallerException("Cannot call remove on Glyph");
+    }
 
     /**
      * Returns the Glyph at the given position in the child list
      * @param pos
      */
-    public Glyph childAt(int pos) { return null; } // TODO throw error
+    public Glyph childAt(int pos) {
+        throw new IllegalCallerException("Cannot call childAt on Glyph");
+    }
 
     /**
      * Sets starting position (top-left corner) for this Glyph
@@ -86,5 +100,13 @@ public abstract class Glyph {
      */
     public void setBounds(Bounds bounds) {
         this.bounds = bounds;
+    }
+
+    /**
+     * Returns the window associated with this Composition
+     * @return window
+     */
+    public Window window() {
+        throw new IllegalCallerException("Cannot call window on Glyph");
     }
 }

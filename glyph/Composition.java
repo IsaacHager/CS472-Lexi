@@ -8,22 +8,18 @@ import window.*;
  * @author Isaachager
  */
 public abstract class Composition extends CompositeGlyph {
-    private Compositor comp;
-    private Window window;
+    protected Compositor comp;
+    protected Window window;
 
     protected Composition() {
-        super();
         this.comp = new SimpleCompositor();
         comp.setComposition(this);
     }
 
-    /**
-     * Returns updated cursor bounds given a child
-     * @param cursor
-     * @param child
-     * @return cursor bounds
-     */
-    public abstract Bounds cursorNext(Bounds cursor, Glyph child);
+    protected Composition(Window w) {
+        this();
+        setWindow(w);
+    }
 
     /**
      * Sets the window to use
@@ -41,5 +37,18 @@ public abstract class Composition extends CompositeGlyph {
     @Override
     public void compose() {
         comp.compose();
+    }
+
+    @Override
+    public void insert(Glyph g, int pos) {
+        super.insert(g, pos);
+        compose();
+    }
+
+    @Override
+    public Glyph remove(int pos) {
+        Glyph g = super.remove(pos);
+        compose();
+        return g;
     }
 }

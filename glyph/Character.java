@@ -29,4 +29,9 @@ public class Character extends Glyph {
         bounds.setHeight(w.charHeight(c));
         bounds.setWidth(w.charWidth(c));
     }
+
+    @Override
+    public Bounds cursorNext(Bounds cursor, Glyph child) {
+        return cursor;
+    }
 }
