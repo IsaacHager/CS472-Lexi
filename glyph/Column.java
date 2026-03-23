@@ -4,6 +4,8 @@ import window.Window;
 
 /**
  * Vertical container for Glyphs.
+ * 
+ * Functions as the "ConcreteComponent" part of the Decorator(175) pattern.
  * @author Isaachager
  */
 public class Column extends Composition {

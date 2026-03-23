@@ -4,6 +4,8 @@ import window.*;
 
 /**
  * Horizontal container for Glyphs
+ * 
+ * Functions as the "ConcreteComponent" part of the Decorator(175) pattern.
  * @author Isaachager
  */
 public class Row extends Composition {

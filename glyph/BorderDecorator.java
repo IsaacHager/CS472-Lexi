@@ -2,6 +2,12 @@ package glyph;
 
 import window.Window;
 
+/**
+ * An embellishment that adds a scrollbar to the outside of a Composition.
+ * 
+ * Functions as the 'ConcreteDecorator' part of the Decorator(175) pattern.
+ * @author Isaachager
+ */
 public class BorderDecorator extends Decorator {
   private int width;
 
@@ -19,11 +25,6 @@ public class BorderDecorator extends Decorator {
     bounds.setPosition(originalPosition);
     bounds.setWidth(c.bounds.width() + width * 2);
     bounds.setHeight(c.bounds.height() + width * 2);
-  }
-
-  @Override
-  public Bounds cursorNext(Bounds cursor, Glyph child) {
-    return c.cursorNext(cursor, child);
   }
 
   @Override

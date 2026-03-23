@@ -2,6 +2,13 @@ package glyph;
 
 import window.Window;
 
+/**
+ * An embellishment that adds a scrollbar to the right side of a
+ * Composition. It is not functional, only visual.
+ * 
+ * Functions as the 'ConcreteDecorator' part of the Decorator(175) pattern.
+ * @author Isaachager
+ */
 public class ScrollbarDecorator extends Decorator {
   private int width;
 
@@ -14,11 +21,6 @@ public class ScrollbarDecorator extends Decorator {
   public void compose() {
     comp.compose();
     bounds.setWidth(c.bounds.width() + width);
-  }
-
-  @Override
-  public Bounds cursorNext(Bounds cursor, Glyph child) {
-    return c.cursorNext(cursor, child);
   }
 
   @Override

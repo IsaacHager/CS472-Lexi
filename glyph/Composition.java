@@ -5,6 +5,8 @@ import window.*;
 /**
  * Represents a glyph that can be composed. That is,
  * it can format itself in relation to its children.
+ * 
+ * Functions as the "Component" part of the Decorator(175) pattern.
  * @author Isaachager
  */
 public abstract class Composition extends CompositeGlyph {
