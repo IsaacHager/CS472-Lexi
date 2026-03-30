@@ -23,13 +23,13 @@ public class BorderDecorator extends Decorator {
     bounds.setPosition(paddedPostion);
     comp.compose();
     bounds.setPosition(originalPosition);
-    bounds.setWidth(c.bounds.width() + width * 2);
-    bounds.setHeight(c.bounds.height() + width * 2);
+    bounds.setWidth(children.getFirst().bounds.width() + width * 2);
+    bounds.setHeight(children.getFirst().bounds.height() + width * 2);
   }
 
   @Override
   public void draw(Window w) {
-    c.draw(w);
+    children.getFirst().draw(w);
     int x1 = bounds.position().x();
     int y1 = bounds.position().y();
     int x2 = x1 + bounds.width();

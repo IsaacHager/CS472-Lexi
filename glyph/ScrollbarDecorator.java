@@ -20,12 +20,12 @@ public class ScrollbarDecorator extends Decorator {
   @Override
   public void compose() {
     comp.compose();
-    bounds.setWidth(c.bounds.width() + width);
+    bounds.setWidth(children.getFirst().bounds.width() + width);
   }
 
   @Override
   public void draw(Window w) {
-    c.draw(w);
+    children.getFirst().draw(w);
     int x = bounds.position().x() + bounds.width() - width;
     int y = bounds.position().y();
     w.addScrollBar(x, y, width, bounds.height());

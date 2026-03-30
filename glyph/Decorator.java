@@ -10,32 +10,20 @@ import window.Window;
  * @author Isaachager
  */
 public abstract class Decorator extends Composition {
-  protected Composition c;
 
   public Decorator(Composition c) {
-    this.c = c;
-    this.c.parent = this;
     children.add(c);
   }
 
   @Override
   public Bounds cursorNext(Bounds cursor, Glyph child) {
-    return c.cursorNext(cursor, child);
-  }
-
-  public void setWindow(Window window) {
-    c.window = window;
-  }
-
-  @Override
-  public Window window() {
-    return c.window;
+    return children.getFirst().cursorNext(cursor, child);
   }
 
   @Override
   public void compose() {
-    c.comp.compose();
-    this.setBounds(c.bounds);
+    comp.compose();
+    this.setBounds(children.getFirst().bounds);
   }
   
 }

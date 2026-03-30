@@ -1,6 +1,6 @@
 import glyph.*;
 import glyph.Character;
-import window.SwingWindow;
+import window.*;
 /**
  * Lexi editor for creating and editing text files. Supports
  * formatting of text in rows and columns and rectangle characters.
@@ -13,7 +13,7 @@ public class Lexi {
     
     // TODO: placeholder method
     public static void main(String[] args) {
-        SwingWindow window = new SwingWindow("Lexi");
+        Window window = new SwingWindow("Lexi");
         String[] content = {
             "This is a",
             "border demonstration.",
