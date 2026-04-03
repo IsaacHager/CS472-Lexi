@@ -51,7 +51,20 @@ public abstract class Glyph {
      * @param child
      * @return cursor bounds
      */
-    public abstract Bounds cursorNext(Bounds cursor, Glyph child);
+    public Bounds cursorNext(Bounds cursor, Glyph child) {
+        return cursor;
+    }
+
+
+    /**
+     * Adjusts cursor before placing child
+     * @param cursor
+     * @param child
+     * @return cursor bounds
+     */
+    public Bounds adjustCursor(Bounds cursor, Glyph child) {
+        return cursor;
+    }
 
     /**
      * Inserts a child Glyph at a given position

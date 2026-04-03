@@ -22,6 +22,7 @@ public class Column extends Composition {
     public Bounds cursorNext(Bounds cursor, Glyph child) {
         Point newAnchor = new Point(cursor.position().x(), cursor.position().y() + child.bounds().height());
         int maxWidth = Math.max(cursor.width(), child.bounds().width());
-        return new Bounds(newAnchor, maxWidth, 0);
+        int height = cursor.height() + child.bounds().height();
+        return new Bounds(newAnchor, maxWidth, height);
     }
 }

@@ -8,23 +8,24 @@ import window.Window;
  * Functions as the 'ConcreteDecorator' part of the Decorator(175) pattern.
  * @author Isaachager
  */
-public class BorderDecorator extends Decorator {
+public class Border extends Embellishment {
   private int width;
 
-  public BorderDecorator(Composition c, int width) {
+  public Border(Composition c, int width) {
     super(c);
     this.width = width;
   }
 
   @Override
-  public void compose() {
-    Point originalPosition = bounds.position();
-    Point paddedPostion = new Point(originalPosition.x() + width, originalPosition.y() + width);
-    bounds.setPosition(paddedPostion);
-    comp.compose();
-    bounds.setPosition(originalPosition);
-    bounds.setWidth(children.get(0).bounds.width() + width * 2);
-    bounds.setHeight(children.get(0).bounds.height() + width * 2);
+  public void setSize(Window w) {
+    bounds.setWidth(bounds.width() + width * 2);
+    bounds.setHeight(bounds.height() + width * 2);
+  }
+
+  @Override
+  public Bounds adjustCursor(Bounds cursor, Glyph child) {
+    Point newAnchor = new Point(cursor.position().x() + width, cursor.position().y() + width);
+    return new Bounds(newAnchor, cursor.width(), cursor.height());
   }
 
   @Override

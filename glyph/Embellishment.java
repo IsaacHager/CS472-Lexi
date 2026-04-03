@@ -9,15 +9,20 @@ import window.Window;
  * Functions as the 'Decorator' part of the Decorator(175) pattern.
  * @author Isaachager
  */
-public abstract class Decorator extends Composition {
+public abstract class Embellishment extends Composition {
 
-  public Decorator(Composition c) {
+  public Embellishment(Composition c) {
     children.add(c);
   }
 
   @Override
   public Bounds cursorNext(Bounds cursor, Glyph child) {
-    return children.get(0).cursorNext(cursor, child);
+    return children.getFirst().cursorNext(cursor, child);
+  }
+
+  @Override
+  public void insert(Glyph g, int index) {
+    throw new UnsupportedOperationException("Cannot insert into a decorator.");
   }
   
 }
