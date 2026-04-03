@@ -1,9 +1,9 @@
 package glyph.laf;
 
 import glyph.Composition;
-import glyph.Decorator;
+import glyph.Embellishment;
 
-public abstract class Button extends Decorator {
+public abstract class Button extends Embellishment {
 
     public Button(Composition c) {
         super(c);

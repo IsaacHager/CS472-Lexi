@@ -1,5 +1,7 @@
 import glyph.*;
 import glyph.Character;
+import glyph.laf.ColorFactory;
+import glyph.laf.red.RedFactory;
 import window.*;
 /**
  * Lexi editor for creating and editing text files. Supports
@@ -43,6 +45,14 @@ public class Lexi {
         column1.setWindow(window);
         column1.insert(row, 0);
         column1.insert(row1, 1);
+        ColorFactory colorFactory = RedFactory.instance();
+        Composition redRow = new Row("PQ", window);
+        Composition redRow1 = new Row("pq", window);
+        Composition redButton = colorFactory.createButton(redRow);
+        Composition redLabel = colorFactory.createLabel(redRow1);
+        column1.insert(redButton, 2);
+        column1.insert(redLabel, 3);
+
 
         border.composeRoot();
 

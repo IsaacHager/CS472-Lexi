@@ -5,7 +5,19 @@ import glyph.laf.Button;
 import glyph.laf.ColorFactory;
 import glyph.laf.Label;
 
-public class RedFactory implements ColorFactory{
+public class RedFactory implements ColorFactory {
+    private static RedFactory instance;
+
+    private RedFactory() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public static RedFactory instance() {
+        if (instance == null) {
+            instance = new RedFactory();
+        }
+        return instance;
+    }
 
     @Override
     public Button createButton(Composition c) {
