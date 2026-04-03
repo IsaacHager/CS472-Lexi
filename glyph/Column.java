@@ -15,7 +15,7 @@ public class Column extends Composition {
     public Column(String[] strings, Window window) {
         super(window);
         for (int i=0; i<strings.length; i++)
-            insert(new Row(strings[i],window));
+            insert(new Row(strings[i],window), i);
     }
 
     @Override

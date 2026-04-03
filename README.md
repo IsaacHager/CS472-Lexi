@@ -51,3 +51,14 @@ and the Lexi window should open.
 Composite(163) pattern
 Strategy(315) pattern
 Decorator(175) pattern
+
+
+## TODO
+
+Bridge:
+    Abstract superclass about window types
+        Subclass is ApplicationWindow
+        Uses Implementor that is the windowing system
+            Should be Singleton
+            AbstractFactory to choose between the concrete implementations
+            Should only ever have one factory so separate windows are always the same implementation

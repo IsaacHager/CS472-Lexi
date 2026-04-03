@@ -17,13 +17,7 @@ public abstract class Decorator extends Composition {
 
   @Override
   public Bounds cursorNext(Bounds cursor, Glyph child) {
-    return children.getFirst().cursorNext(cursor, child);
-  }
-
-  @Override
-  public void compose() {
-    comp.compose();
-    this.setBounds(children.getFirst().bounds);
+    return children.get(0).cursorNext(cursor, child);
   }
   
 }
