@@ -9,10 +9,10 @@ import window.Window;
  * Functions as the 'ConcreteDecorator' part of the Decorator(175) pattern.
  * @author Isaachager
  */
-public class ScrollbarDecorator extends Decorator {
+public class Scrollbar extends Embellishment {
   private int width;
 
-  public ScrollbarDecorator(Composition c, int width) {
+  public Scrollbar(Composition c, int width) {
     super(c);
     this.width = width;
   }
@@ -21,6 +21,12 @@ public class ScrollbarDecorator extends Decorator {
   public void compose() {
     comp.compose();
     bounds.setWidth(children.getFirst().bounds.width() + width);
+  }
+
+  @Override
+  public void setSize(Window w) {
+    super.setSize(w);
+    bounds.setWidth(bounds.width() + width);
   }
 
   @Override

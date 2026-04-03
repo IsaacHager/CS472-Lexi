@@ -20,9 +20,9 @@ public class Lexi {
             "Scroller too!"
         };
         Composition column = new Column(content, window);
-        Composition scrollbar = new ScrollbarDecorator(column, 10);
+        Composition scrollbar = new Scrollbar(column, 10);
         scrollbar.setWindow(window);
-        Composition border = new BorderDecorator(scrollbar, 3);
+        Composition border = new Border(scrollbar, 3);
         border.setWindow(window);
         // column.setWindow(window);
         // column.insert(new Character('X'), 0);

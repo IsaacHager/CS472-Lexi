@@ -28,6 +28,7 @@ public class SimpleCompositor implements Compositor {
             child.setSize(c.window());
 
             // ask child to set position, based on cursor
+            cursor = c.adjustCursor(cursor, child); // TODO: ask about this
             child.setPosition(cursor.position());
 
             // ask child to compose itself, recursively
@@ -37,9 +38,7 @@ public class SimpleCompositor implements Compositor {
             cursor = c.cursorNext(cursor, child);
         }
         // ask parent to adjust itself, based on cursor
-        int trueWidth = cursor.position().x() - c.bounds().position().x() + cursor.width();
-        int trueHeight = cursor.position().y() - c.bounds().position().y() + cursor.height();
-        Bounds newBounds = new Bounds(c.bounds().position(), trueWidth, trueHeight);
+        Bounds newBounds = new Bounds(c.bounds().position(), cursor.width() + c.bounds().width(), cursor.height() + c.bounds().height());
         c.setBounds(newBounds);
     }
     
