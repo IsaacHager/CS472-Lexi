@@ -18,20 +18,14 @@ public class Scrollbar extends Embellishment {
   }
 
   @Override
-  public void compose() {
-    comp.compose();
-    bounds.setWidth(children.get(0).bounds.width() + width);
-  }
-
-  @Override
   public Bounds adjustCursor(Bounds cursor, Glyph child) {
-    return new Bounds(cursor.position(), cursor.width() + width, cursor.height());
+    return new Bounds(cursor.position(), cursor.width(), cursor.height());
   }
 
   @Override
   public void adjust(Bounds cursor, Glyph child) {
     super.adjust(cursor, child);
-    setBounds(new Bounds(bounds.position(), bounds.width() + width, bounds.height()));
+    setBounds(new Bounds(bounds.position(), bounds.width() + width / 2, bounds.height()));
   }
 
   @Override

@@ -46,15 +46,10 @@ public abstract class Glyph {
     }
 
     /**
-     * Returns updated cursor bounds given a child
+     * Adjusts this Glyph's bounds to fit the child Glyph and moves the cursor to the next position
      * @param cursor
      * @param child
-     * @return cursor bounds
      */
-    public Bounds cursorNext(Bounds cursor, Glyph child) {
-        return cursor;
-    }
-
     public void adjust(Bounds cursor, Glyph child) {}
 
 

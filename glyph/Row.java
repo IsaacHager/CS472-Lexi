@@ -19,14 +19,6 @@ public class Row extends Composition {
     }
 
     @Override
-    public Bounds cursorNext(Bounds cursor, Glyph child) {
-        Point newAnchor = new Point(cursor.position().x() + child.bounds().width(), cursor.position().y());
-        int maxHeight = Math.max(cursor.height(), child.bounds().height());
-        int width = cursor.width() + child.bounds().width();
-        return new Bounds(newAnchor, width, maxHeight);
-    }
-
-    @Override
     public void adjust(Bounds cursor, Glyph child) {
         Point newAnchor = new Point(cursor.position().x() + child.bounds().width(), cursor.position().y());
         int maxHeight = Math.max(bounds.height(), child.bounds().height());
