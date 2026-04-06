@@ -20,7 +20,8 @@ public class SimpleCompositor implements Compositor {
             this.c.setWindow(this.c.parent.window());
         }
 
-        Bounds cursor = new Bounds(c.bounds().position(), 0, 0);
+        Bounds cursor = new Bounds(c.bounds.position(), 0, 0);
+        c.setBounds(new Bounds(cursor));    // reset bounds
 
         // create cursor based on parent
         for (Glyph child : c.children) {
@@ -35,10 +36,10 @@ public class SimpleCompositor implements Compositor {
             child.compose();
 
             // ask parent to adjust itself and cursor, based on child
-            cursor = c.cursorNext(cursor, child);
+            c.adjust(cursor, child);
         }
         // ask parent to adjust itself, based on cursor
-        Bounds newBounds = new Bounds(c.bounds().position(), cursor.width() + c.bounds().width(), cursor.height() + c.bounds().height());
+        Bounds newBounds = new Bounds(c.bounds().position(), Math.max(c.bounds().width(), cursor.position().x() - c.bounds().position().x()), Math.max(c.bounds().height(), cursor.position().y() - c.bounds().position().y()));
         c.setBounds(newBounds);
     }
     

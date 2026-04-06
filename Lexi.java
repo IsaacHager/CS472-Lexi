@@ -46,13 +46,12 @@ public class Lexi {
         column1.insert(row, 0);
         column1.insert(row1, 1);
         ColorFactory colorFactory = RedFactory.instance();
-        Composition redRow = new Row("PQ", window);
-        Composition redRow1 = new Row("pq", window);
-        Composition redButton = colorFactory.createButton(redRow);
-        Composition redLabel = colorFactory.createLabel(redRow1);
-        column1.insert(redButton, 2);
-        column1.insert(redLabel, 3);
-
+        Composition btnContents = new Row("PQ", window);
+        Composition labelContents = new Row("pq", window);
+        Composition button = colorFactory.createButton(btnContents);
+        Composition label = colorFactory.createLabel(labelContents);
+        column1.insert(button, 2);
+        column1.insert(label, 3);
 
         border.composeRoot();
 

@@ -17,7 +17,13 @@ public abstract class Embellishment extends Composition {
 
   @Override
   public Bounds cursorNext(Bounds cursor, Glyph child) {
-    return children.getFirst().cursorNext(cursor, child);
+    return children.get(0).cursorNext(cursor, child);
+  }
+
+  @Override
+  public void adjust(Bounds cursor, Glyph child) {
+    children.get(0).adjust(cursor, child);
+    setBounds(children.get(0).bounds());
   }
 
   @Override

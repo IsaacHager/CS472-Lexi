@@ -55,6 +55,8 @@ public abstract class Glyph {
         return cursor;
     }
 
+    public void adjust(Bounds cursor, Glyph child) {}
+
 
     /**
      * Adjusts cursor before placing child

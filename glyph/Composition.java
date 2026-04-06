@@ -44,13 +44,13 @@ public abstract class Composition extends CompositeGlyph {
     @Override
     public void insert(Glyph g, int pos) {
         super.insert(g, pos);
-        // compose();
+        compose();
     }
 
     @Override
     public Glyph remove(int pos) {
         Glyph g = super.remove(pos);
-        // compose();
+        compose();
         return g;
     }
 }

@@ -24,9 +24,14 @@ public class Scrollbar extends Embellishment {
   }
 
   @Override
-  public void setSize(Window w) {
-    super.setSize(w);
-    bounds.setWidth(bounds.width() + width);
+  public Bounds adjustCursor(Bounds cursor, Glyph child) {
+    return new Bounds(cursor.position(), cursor.width() + width, cursor.height());
+  }
+
+  @Override
+  public void adjust(Bounds cursor, Glyph child) {
+    super.adjust(cursor, child);
+    setBounds(new Bounds(bounds.position(), bounds.width() + width, bounds.height()));
   }
 
   @Override

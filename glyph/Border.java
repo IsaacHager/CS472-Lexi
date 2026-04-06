@@ -17,15 +17,15 @@ public class Border extends Embellishment {
   }
 
   @Override
-  public void setSize(Window w) {
-    bounds.setWidth(bounds.width() + width * 2);
-    bounds.setHeight(bounds.height() + width * 2);
+  public Bounds adjustCursor(Bounds cursor, Glyph child) {
+    Point newAnchor = new Point(cursor.position().x() + width, cursor.position().y() + width);
+    return new Bounds(newAnchor, cursor.width() + width * 2, cursor.height() + width * 2);
   }
 
   @Override
-  public Bounds adjustCursor(Bounds cursor, Glyph child) {
-    Point newAnchor = new Point(cursor.position().x() + width, cursor.position().y() + width);
-    return new Bounds(newAnchor, cursor.width(), cursor.height());
+  public void adjust(Bounds cursor, Glyph child) {
+    super.adjust(cursor, child);
+    setBounds(new Bounds(new Point(bounds.position().x() - width, bounds.position().y() - width), bounds.width() + width * 2, bounds.height() + width * 2));
   }
 
   @Override
