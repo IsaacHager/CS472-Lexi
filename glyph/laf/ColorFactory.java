@@ -3,9 +3,10 @@ package glyph.laf;
 import glyph.Composition;
 
 /**
- * Factory for creating Buttons and Labels of a certain color.
+ * Factory interface creating Buttons and Labels of a certain color.
  * 
- * Functions as the 'Abstract Factory' part of the AbstractFactory(87) pattern.
+ * Functions as the 'AbstractFactory' part of the AbstractFactory(87) pattern
+ * and the 'Creator' part of the FactoryMethod(107) pattern.
  */
 public interface ColorFactory {
     

@@ -4,6 +4,12 @@ import glyph.Composition;
 import glyph.laf.Button;
 import window.Window;
 
+/**
+ * Represents a red Button
+ * 
+ * Functions as the 'ConcreteProduct' part of the AbstractFactory(87) pattern
+ * and the FactoryMethod(107) pattern.
+ */
 public class RedButton extends Button {
 
     public RedButton(Composition c) {
