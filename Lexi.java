@@ -1,6 +1,7 @@
 import glyph.*;
 import glyph.Character;
 import glyph.laf.ColorFactory;
+import glyph.laf.green.GreenFactory;
 import glyph.laf.red.RedFactory;
 import window.*;
 /**
@@ -52,7 +53,14 @@ public class Lexi {
 
     @SuppressWarnings("unused")
     private static Glyph demo3(Window window) {
-        ColorFactory colorFactory = RedFactory.instance();
+        ColorFactory colorFactory = null;
+        System.out.println("DEBUG: LexiWidget is set to: " + System.getenv("LexiWidget"));
+
+        String s=System.getenv("LexiWidget");
+        if (s!=null && s.equals("Green"))
+            colorFactory = GreenFactory.instance();
+        else
+            colorFactory = RedFactory.instance();
 
         
         Composition column2 = new Column(window);
