@@ -4,6 +4,12 @@ import glyph.Composition;
 import glyph.laf.Label;
 import window.Window;
 
+/**
+ * Represents a red Label
+ * 
+ * Functions as the 'ConcreteProduct' part of the AbstractFactory(87) pattern
+ * and the FactoryMethod(107) pattern.
+ */
 public class RedLabel extends Label {
 
     public RedLabel(Composition c) {
