@@ -12,6 +12,10 @@ public class Row extends Composition {
 
     public Row() {}
 
+    public Row(Window window) {
+        super(window);
+    }
+
     public Row(String string, Window window) {
         super(window);
         for (int i=0; i<string.length(); i++)
@@ -19,10 +23,11 @@ public class Row extends Composition {
     }
 
     @Override
-    public void adjust(Bounds cursor, Glyph child) {
+    public void adjustCursor(Bounds cursor, Glyph child) {
         Point newAnchor = new Point(cursor.position().x() + child.bounds().width(), cursor.position().y());
         int maxHeight = Math.max(bounds.height(), child.bounds().height());
         cursor.setPosition(newAnchor);
-        setBounds(new Bounds(bounds.position(), bounds.width(), maxHeight));
+        cursor.setWidth(cursor.width() + child.bounds().width());
+        cursor.setHeight(maxHeight);
     }
 }

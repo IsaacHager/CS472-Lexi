@@ -8,10 +8,6 @@ import glyph.laf.Label;
 public class RedFactory implements ColorFactory {
     private static RedFactory instance;
 
-    private RedFactory() {
-        // TODO Auto-generated constructor stub
-    }
-
     public static RedFactory instance() {
         if (instance == null) {
             instance = new RedFactory();

@@ -42,6 +42,12 @@ public abstract class Composition extends CompositeGlyph {
     }
 
     @Override
+    public void adjustBounds(Bounds cursor) {
+        Bounds newBounds = new Bounds(bounds.position(), cursor.width(), cursor.height());
+        setBounds(newBounds);
+    }
+
+    @Override
     public void insert(Glyph g, int pos) {
         super.insert(g, pos);
         compose();

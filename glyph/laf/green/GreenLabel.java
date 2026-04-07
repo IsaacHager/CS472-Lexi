@@ -8,7 +8,6 @@ public class GreenLabel extends Label {
 
     public GreenLabel(Composition c) {
         super(c);
-        //TODO Auto-generated constructor stub
     }
 
     @Override

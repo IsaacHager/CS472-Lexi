@@ -1,7 +1,5 @@
 package glyph;
 
-import window.Window;
-
 /**
  * An embellishment that adds some functionality to a Composition,
  * visual or behavioral.
@@ -13,13 +11,14 @@ public abstract class Embellishment extends Composition {
 
   public Embellishment(Composition c) {
     children.add(c);
+    c.parent = this;
+    window = c.window();
   }
 
-  @Override
-  public void adjust(Bounds cursor, Glyph child) {
-    children.get(0).adjust(cursor, child);
-    setBounds(children.get(0).bounds());
-  }
+    @Override
+    public void adjustCursor(Bounds cursor, Glyph child) {
+        children.get(0).adjustCursor(cursor, child);
+    }
 
   @Override
   public void insert(Glyph g, int index) {

@@ -46,22 +46,37 @@ public abstract class Glyph {
     }
 
     /**
+     * Allows parent to give an offset to the cursor, then sets this Glyph's position according to the cursor
+     * @param cursor
+     */
+    public void computePosition(Bounds cursor) {
+        if (parent != null) {
+            parent.offsetCursor(cursor);
+        }
+        setPosition(cursor.position());
+    }
+
+    /**
+     * Move cursor to place child in the right place
+     * @param cursor
+     */
+    public void offsetCursor(Bounds cursor) {}
+
+    /**
+     * Adjusts this Glyph's bounds according to the cursor
+     * @param cursor
+     */
+    public void adjustBounds(Bounds cursor) {
+        Bounds newBounds = new Bounds(bounds.position(), cursor.width(), cursor.height());
+        setBounds(newBounds);
+    }
+
+    /**
      * Adjusts this Glyph's bounds to fit the child Glyph and moves the cursor to the next position
      * @param cursor
      * @param child
      */
-    public void adjust(Bounds cursor, Glyph child) {}
-
-
-    /**
-     * Adjusts cursor before placing child
-     * @param cursor
-     * @param child
-     * @return cursor bounds
-     */
-    public Bounds adjustCursor(Bounds cursor, Glyph child) {
-        return cursor;
-    }
+    public void adjustCursor(Bounds cursor, Glyph child) {}
 
     /**
      * Inserts a child Glyph at a given position

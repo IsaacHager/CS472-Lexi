@@ -28,6 +28,13 @@ to work through and think about was how to add padding in the compose() method.
 I may very well end up changing the implementation after recieving review, as
 I'm not sure if it's a good implementation.
 
+I finally got compose working how it should. I really just needed to simplify
+and tackle it from a broader perspective so I could see what was required of
+each part. It is so much simpler and cleaner now that each object handles its
+own formatting steps. Adding the look and feel was very easy. All I needed to
+do was make each color factory a singleton and then make the buttons draw
+themselves. I also made my main method use helper functions.
+
 ## Compiling and Using
 
 Navigate to the root directory containing Lexi and all of its dependencies.
