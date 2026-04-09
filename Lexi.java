@@ -15,7 +15,8 @@ import window.*;
 public class Lexi {
     
     public static void main(String[] args) {
-        Window window = new SwingWindow("Lexi");
+        Window window = new ApplicationWindow("Lexi");
+        System.out.println("DEBUG: LexiWindow is set to: " + System.getenv("LexiWindow"));
 
         Glyph root = demo3(window);
 

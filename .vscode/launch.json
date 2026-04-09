@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Lexi",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "Lexi",
+            "env": {
+                "LexiWidget": "${input:LexiWidget}",
+                "LexiWindow": "${input:LexiWindow}"
+            },
+            "cwd": "${workspaceFolder}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "LexiWidget",
+            "type": "promptString",
+            "description": "Enter LexiWidget value:",
+            "default": "DefaultWidget"
+        },
+        {
+            "id": "LexiWindow",
+            "type": "promptString",
+            "description": "Enter LexiWindow value:",
+            "default": "DefaultWindow"
+        }
+    ]
+}
