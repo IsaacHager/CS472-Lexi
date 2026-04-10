@@ -16,7 +16,6 @@ public class Lexi {
     
     public static void main(String[] args) {
         Window window = new ApplicationWindow("Lexi");
-        System.out.println("DEBUG: LexiWindow is set to: " + System.getenv("LexiWindow"));
 
         Glyph root = demo3(window);
 
@@ -54,14 +53,7 @@ public class Lexi {
 
     @SuppressWarnings("unused")
     private static Glyph demo3(Window window) {
-        ColorFactory colorFactory = null;
-        System.out.println("DEBUG: LexiWidget is set to: " + System.getenv("LexiWidget"));
-
-        String s=System.getenv("LexiWidget");
-        if (s!=null && s.equals("Green"))
-            colorFactory = GreenFactory.instance();
-        else
-            colorFactory = RedFactory.instance();
+        ColorFactory colorFactory = ColorFactory.INSTANCE;
 
         
         Composition column2 = new Column(window);

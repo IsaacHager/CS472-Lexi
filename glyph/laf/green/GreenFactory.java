@@ -12,23 +12,15 @@ import glyph.laf.Label;
  * and the 'ConcreteCreator' part of the FactoryMethod(107) pattern
  * and the 'Singleton' part of the Singleton(127) pattern.
  */
-public class GreenFactory implements ColorFactory {
-    private static GreenFactory instance;
-
-    public static GreenFactory instance() {
-        if (instance == null) {
-            instance = new GreenFactory();
-        }
-        return instance;
-    }
+public class GreenFactory extends ColorFactory {
 
     @Override
-    public Button createButton(Composition c) {
+    protected Button coloredButton(Composition c) {
         return new GreenButton(c);
     }
 
     @Override
-    public Label createLabel(Composition c) {
+    protected Label coloredLabel(Composition c) {
         return new GreenLabel(c);
     }
     

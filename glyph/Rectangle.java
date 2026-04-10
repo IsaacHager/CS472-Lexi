@@ -29,7 +29,7 @@ public class Rectangle extends Glyph {
 
     @Override
     public void setSize(Window w) {
-        bounds.setHeight(height);
-        bounds.setWidth(width);
+        bounds.setHeight(height + 1);   // add 1 for spacing
+        bounds.setWidth(width + 1);
     }
 }

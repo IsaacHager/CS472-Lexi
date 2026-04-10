@@ -1,6 +1,6 @@
 package window;
 
-public class SwingFactory implements WindowSystemFactory {
+public class SwingFactory extends WindowSystemFactory {
   
   private static SwingFactory instance;
 
@@ -12,8 +12,8 @@ public class SwingFactory implements WindowSystemFactory {
   }
 
   @Override
-  public WindowImp createWindowImp(String title, Window window) {
-      return new SwingWindow(title, window);
+  protected WindowImp createWindowImp(String title, Window window) {
+    return new SwingWindow(title, window);
   }
   
 }

@@ -1,6 +1,6 @@
 package window;
 
-public class AwtFactory implements WindowSystemFactory {
+public class AwtFactory extends WindowSystemFactory {
   
   private static AwtFactory instance;
 
@@ -12,7 +12,7 @@ public class AwtFactory implements WindowSystemFactory {
   }
 
   @Override
-  public WindowImp createWindowImp(String title, Window window) {
+  protected WindowImp createWindowImp(String title, Window window) {
     return new AwtWindow(title, window);
   }
   

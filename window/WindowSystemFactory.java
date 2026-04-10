@@ -1,11 +1,20 @@
 package window;
 
-public interface WindowSystemFactory {
-
-  public static WindowSystemFactory instance() {
-    throw new IllegalAccessError("This method should be overridden by subclasses");
+public abstract class WindowSystemFactory {
+  public static final WindowSystemFactory INSTANCE = instance();
+    
+  private static WindowSystemFactory instance() {
+    if (INSTANCE != null) {
+      return INSTANCE;
+    }
+    String s = System.getenv("LexiWindow");
+    return (s != null && s.equals("Awt")) ? new AwtFactory() : new SwingFactory();
   }
 
-  public WindowImp createWindowImp(String title, Window window);
+  protected abstract WindowImp createWindowImp(String title, Window window);
+
+  public WindowImp getWindowImp(String title, Window window) {
+    return createWindowImp(title, window);
+  }
 
 }

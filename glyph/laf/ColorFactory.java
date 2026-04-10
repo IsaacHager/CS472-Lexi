@@ -1,6 +1,8 @@
 package glyph.laf;
 
 import glyph.Composition;
+import glyph.laf.green.GreenFactory;
+import glyph.laf.red.RedFactory;
 
 /**
  * Factory interface creating Buttons and Labels of a certain color.
@@ -8,8 +10,25 @@ import glyph.Composition;
  * Functions as the 'AbstractFactory' part of the AbstractFactory(87) pattern
  * and the 'Creator' part of the FactoryMethod(107) pattern.
  */
-public interface ColorFactory {
+public abstract class ColorFactory {
+    public static final ColorFactory INSTANCE = instance();
     
-    public Button createButton(Composition c);
-    public Label createLabel(Composition c);
+    private static ColorFactory instance() {
+        if (INSTANCE != null) {
+            return INSTANCE;
+        }
+        String s = System.getenv("LexiWidget");
+        return (s != null && s.equals("Green")) ? new GreenFactory() : new RedFactory();
+    }
+    
+    protected abstract Button coloredButton(Composition c);
+    protected abstract Label coloredLabel(Composition c);
+
+    public Button createButton(Composition c) {
+        return coloredButton(c);
+    }
+    public Label createLabel(Composition c) {
+        return coloredLabel(c);
+    }
+
 }
