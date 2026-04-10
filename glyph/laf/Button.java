@@ -10,7 +10,7 @@ import glyph.Embellishment;
  */
 public abstract class Button extends Embellishment {
 
-    public Button(Composition c) {
+    protected Button(Composition c) {
         super(c);
     }
     

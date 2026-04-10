@@ -12,7 +12,7 @@ import window.Window;
  */
 public class GreenButton extends Button {
 
-    public GreenButton(Composition c) {
+    protected GreenButton(Composition c) {
         super(c);
     }
 

@@ -12,7 +12,7 @@ import window.Window;
  */
 public class RedLabel extends Label {
 
-    public RedLabel(Composition c) {
+    protected RedLabel(Composition c) {
         super(c);
     }
 
