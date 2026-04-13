@@ -1,15 +1,12 @@
 package window;
 
-public class AwtFactory extends WindowSystemFactory {
-  
-  private static AwtFactory instance;
-
-  public static AwtFactory instance() {
-    if (instance == null) {
-    instance = new AwtFactory();
-    }
-    return instance;
-  }
+/**
+ * Factory for making AwtWindows.
+ * 
+ * AbstractFactory(87): ConcreteFactory1
+ * FactoryMethod(107): ConcreteCreator
+ */
+class AwtFactory extends WindowSystemFactory {
 
   @Override
   protected WindowImp createWindowImp(String title, Window window) {

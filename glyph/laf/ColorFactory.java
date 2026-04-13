@@ -1,8 +1,6 @@
 package glyph.laf;
 
 import glyph.Composition;
-import glyph.laf.green.GreenFactory;
-import glyph.laf.red.RedFactory;
 
 /**
  * Factory interface creating Buttons and Labels of a certain color.

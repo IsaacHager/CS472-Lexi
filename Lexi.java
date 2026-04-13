@@ -1,8 +1,6 @@
 import glyph.*;
 import glyph.Character;
 import glyph.laf.ColorFactory;
-import glyph.laf.green.GreenFactory;
-import glyph.laf.red.RedFactory;
 import window.*;
 /**
  * Lexi editor for creating and editing text files. Supports

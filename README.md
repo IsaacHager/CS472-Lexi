@@ -35,6 +35,14 @@ own formatting steps. Adding the look and feel was very easy. All I needed to
 do was make each color factory a singleton and then make the buttons draw
 themselves. I also made my main method use helper functions.
 
+I am uncertain if I implemented these patterns correctly. I had the widget
+factory wrong, but I believe I fixed most of the issues with that one in
+this part. Now the singleton is decided in the abstract parent class so there
+can only ever be one and not the other. It seems that the implementor part 
+really just gives the Window something to wrap. It works well, and it is
+helpful to be able to switch between so many options so quickly. I can see
+that it would be easy to add support for a new system very quickly.
+
 ## Compiling and Using
 
 Navigate to the root directory containing Lexi and all of its dependencies.
@@ -52,12 +60,22 @@ $ java Lexi
 
 and the Lexi window should open.
 
+If you would like to set the environment variables to change the look and feel
+or implementation, set them and run the program in the same line like so:
+
+`
+$ LexiWidget=color & LexiWindow=window & java Lexi
+`
 
 ## Sources used
 
 Composite(163) pattern
 Strategy(315) pattern
 Decorator(175) pattern
+AbstractFactory(87) pattern
+FactoryMethod(107) pattern
+Singleton(127) pattern
+Bridge(151) pattern
 
 
 ## TODO

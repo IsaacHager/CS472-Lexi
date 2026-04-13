@@ -1,7 +1,6 @@
-package glyph.laf.red;
+package glyph.laf;
 
 import glyph.Composition;
-import glyph.laf.Label;
 import window.Window;
 
 /**
@@ -10,7 +9,7 @@ import window.Window;
  * Functions as the 'ConcreteProduct' part of the AbstractFactory(87) pattern
  * and the FactoryMethod(107) pattern.
  */
-public class RedLabel extends Label {
+class RedLabel extends Label {
 
     protected RedLabel(Composition c) {
         super(c);

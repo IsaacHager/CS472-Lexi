@@ -1,24 +1,23 @@
-package glyph.laf.green;
+package glyph.laf;
 
 import glyph.Composition;
-import glyph.laf.Label;
 import window.Window;
 
 /**
- * Represents a green Label
+ * Represents a red Button
  * 
  * Functions as the 'ConcreteProduct' part of the AbstractFactory(87) pattern
  * and the FactoryMethod(107) pattern.
  */
-public class GreenLabel extends Label {
+class RedButton extends Button {
 
-    protected GreenLabel(Composition c) {
+    protected RedButton(Composition c) {
         super(c);
     }
 
     @Override
     public void draw(Window w) {
-        w.drawLabel(bounds().position().x(), bounds().position().y(), bounds().width(), bounds().height(), "green");
+        w.drawButton(bounds().position().x(), bounds().position().y(), bounds().width(), bounds().height(), "red");
         super.draw(w);
     }
     

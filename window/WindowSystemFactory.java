@@ -1,9 +1,16 @@
 package window;
 
+/**
+ * Represents a facroty for a windowing system.
+ * 
+ * Singleton(127): Singleton
+ * AbstractFactory(87): AbstractFactory
+ * FactoryMethod(107): Creator
+ */
 public abstract class WindowSystemFactory {
-  public static final WindowSystemFactory INSTANCE = instance();
+  protected static final WindowSystemFactory INSTANCE = instance();
     
-  private static WindowSystemFactory instance() {
+  public static WindowSystemFactory instance() {
     if (INSTANCE != null) {
       return INSTANCE;
     }

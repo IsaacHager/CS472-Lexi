@@ -1,7 +1,6 @@
-package glyph.laf.green;
+package glyph.laf;
 
 import glyph.Composition;
-import glyph.laf.Button;
 import window.Window;
 
 /**
@@ -10,7 +9,7 @@ import window.Window;
  * Functions as the 'ConcreteProduct' part of the AbstractFactory(87) pattern
  * and the FactoryMethod(107) pattern.
  */
-public class GreenButton extends Button {
+class GreenButton extends Button {
 
     protected GreenButton(Composition c) {
         super(c);
