@@ -61,10 +61,10 @@ $ java Lexi
 and the Lexi window should open.
 
 If you would like to set the environment variables to change the look and feel
-or implementation, set them and run the program in the same line like so:
+or implementation, first set them like so:
 
 `
-$ LexiWidget=color & LexiWindow=window & java Lexi
+$ export LexiWidget="<color>"; export LexiWindow="<window>"; java Lexi
 `
 
 ## Sources used
