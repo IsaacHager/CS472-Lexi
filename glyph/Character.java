@@ -29,4 +29,12 @@ public class Character extends Glyph {
         bounds.setHeight(w.charHeight(c));
         bounds.setWidth(w.charWidth(c));
     }
+
+    @Override
+    public Glyph get(int x, int y) {
+        if (intersects(x, y)) {
+            return this;
+        }
+        return null;
+    }
 }

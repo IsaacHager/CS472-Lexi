@@ -7,6 +7,7 @@ import window.Window;
  * a container like a row or a column, etc.).
  *
  * Functions as the 'Component' part of the Composite(163) pattern.
+ * // ChainOfResponsibility(223): Handler
  * @author Isaachager
  */
 public abstract class Glyph {
@@ -133,5 +134,18 @@ public abstract class Glyph {
      */
     public Window window() {
         throw new IllegalCallerException("Cannot call window on Glyph");
+    }
+
+    public boolean intersects(int x, int y) {
+        return bounds().position().x() <= x && x <= bounds().position().x() + bounds().width() &&
+               bounds().position().y() <= y && y <= bounds().position().y() + bounds().height();
+    }
+
+    public abstract Glyph get(int x, int y);
+
+    public void click() {
+        if (parent != null) {
+        parent.click();
+        }
     }
 }

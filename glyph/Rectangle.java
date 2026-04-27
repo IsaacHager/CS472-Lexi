@@ -32,4 +32,12 @@ public class Rectangle extends Glyph {
         bounds.setHeight(height + 1);   // add 1 for spacing
         bounds.setWidth(width + 1);
     }
+
+    @Override
+    public Glyph get(int x, int y) {
+        if (intersects(x, y)) {
+            return this;
+        }
+        return null;
+    }
 }

@@ -1,5 +1,6 @@
 package glyph.laf;
 
+import command.Command;
 import glyph.Composition;
 import window.Window;
 
@@ -11,8 +12,8 @@ import window.Window;
  */
 class GreenButton extends Button {
 
-    protected GreenButton(Composition c) {
-        super(c);
+    protected GreenButton(Composition c, Command command) {
+        super(c, command);
     }
 
     @Override

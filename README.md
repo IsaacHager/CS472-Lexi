@@ -43,6 +43,14 @@ really just gives the Window something to wrap. It works well, and it is
 helpful to be able to switch between so many options so quickly. I can see
 that it would be easy to add support for a new system very quickly.
 
+The framework for commands looks very powerful. I can see how easy it would be 
+to add new commands for buttons or keystrokes. History also seems to be a 
+perfect case for Singleton. Being able to access it globally is vital, and 
+there should certainly only be one instance. I do wish I could have put the 
+logic for pushing to history in the command executions, but that causes each 
+redo to reset the redo stack. Lexi is a fantastic project for getting familiar 
+with design patterns and I might very well continue to develop it. 
+
 ## Compiling and Using
 
 Navigate to the root directory containing Lexi and all of its dependencies.
@@ -76,14 +84,6 @@ AbstractFactory(87) pattern
 FactoryMethod(107) pattern
 Singleton(127) pattern
 Bridge(151) pattern
-
-
-## TODO
-
-Bridge:
-    Abstract superclass about window types
-        Subclass is ApplicationWindow
-        Uses Implementor that is the windowing system
-            Should be Singleton
-            AbstractFactory to choose between the concrete implementations
-            Should only ever have one factory so separate windows are always the same implementation
+Command(233) pattern
+Prototype(117) pattern
+ChainOfResponsibility(223) Pattern

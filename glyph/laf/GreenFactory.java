@@ -1,5 +1,6 @@
 package glyph.laf;
 
+import command.Command;
 import glyph.Composition;
 
 /**
@@ -12,8 +13,8 @@ import glyph.Composition;
 class GreenFactory extends ColorFactory {
 
     @Override
-    protected Button coloredButton(Composition c) {
-        return new GreenButton(c);
+    protected Button coloredButton(Composition c, Command command) {
+        return new GreenButton(c, command);
     }
 
     @Override

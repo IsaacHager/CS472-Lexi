@@ -35,5 +35,17 @@ public class Scrollbar extends Embellishment {
     int y = bounds.position().y();
     w.addScrollBar(x, y, width, bounds.height());
   }
+
+  @Override
+  public Glyph get(int x, int y) {
+    Glyph g = childAt(0).get(x, y);
+    if (g != null) {
+      return g;
+    }
+    if (intersects(x, y)) {
+      return this;
+    }
+    return null;
+  }
   
 }

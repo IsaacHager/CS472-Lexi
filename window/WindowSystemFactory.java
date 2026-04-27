@@ -7,15 +7,17 @@ package window;
  * AbstractFactory(87): AbstractFactory
  * FactoryMethod(107): Creator
  */
-public abstract class WindowSystemFactory {
-  protected static final WindowSystemFactory INSTANCE = instance();
+abstract class WindowSystemFactory {
+  private static final WindowSystemFactory INSTANCE = instance();
+
+  protected WindowSystemFactory() {}
     
-  public static WindowSystemFactory instance() {
+  protected static WindowSystemFactory instance() {
     if (INSTANCE != null) {
       return INSTANCE;
     }
     String s = System.getenv("LexiWindow");
-    return (s != null && s.equals("Awt")) ? new AwtFactory() : new SwingFactory();
+    return (s != null && s.equals("Awt")) ? AwtFactory.instance() : SwingFactory.instance();
   }
 
   protected abstract WindowImp createWindowImp(String title, Window window);

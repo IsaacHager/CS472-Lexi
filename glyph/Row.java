@@ -9,6 +9,7 @@ import window.*;
  * @author Isaachager
  */
 public class Row extends Composition {
+    int prevHeight;
 
     public Row() {}
 
@@ -24,10 +25,28 @@ public class Row extends Composition {
 
     @Override
     public void adjustCursor(Bounds cursor, Glyph child) {
+        if (child.equals(childAt(0))) {
+            prevHeight = 0;
+        }
         Point newAnchor = new Point(cursor.position().x() + child.bounds().width(), cursor.position().y());
-        int maxHeight = Math.max(bounds.height(), child.bounds().height());
+        int maxHeight = Math.max(prevHeight, child.bounds().height());
         cursor.setPosition(newAnchor);
         cursor.setWidth(cursor.width() + child.bounds().width());
         cursor.setHeight(maxHeight);
+        prevHeight = maxHeight;
+    }
+
+    @Override
+    public Glyph get(int x, int y) {
+        for (int i=0; i<children.size(); i++) {
+            Glyph g = childAt(i).get(x, y);
+            if (g != null) {
+                return g;
+            }
+        }
+        if (intersects(x, y)) {
+            return this;
+        }
+        return null;
     }
 }

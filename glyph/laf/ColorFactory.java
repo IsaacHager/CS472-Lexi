@@ -1,5 +1,6 @@
 package glyph.laf;
 
+import command.Command;
 import glyph.Composition;
 
 /**
@@ -19,11 +20,11 @@ public abstract class ColorFactory {
         return (s != null && s.equals("Green")) ? new GreenFactory() : new RedFactory();
     }
     
-    protected abstract Button coloredButton(Composition c);
+    protected abstract Button coloredButton(Composition c ,Command command);
     protected abstract Label coloredLabel(Composition c);
 
-    public Button createButton(Composition c) {
-        return coloredButton(c);
+    public Button createButton(Composition c, Command command) {
+        return coloredButton(c, command);
     }
     public Label createLabel(Composition c) {
         return coloredLabel(c);

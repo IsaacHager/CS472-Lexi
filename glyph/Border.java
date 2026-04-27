@@ -38,5 +38,17 @@ public class Border extends Embellishment {
     int y2 = y1 + bounds.height();
     w.addBorder(x1, y1, x2, y2, width);
   }
+
+  @Override
+  public Glyph get(int x, int y) {
+    Glyph g = childAt(0).get(x, y);
+    if (g != null) {
+      return g;
+    }
+    if (intersects(x, y)) {
+      return this;
+    }
+    return null;
+  }
   
 }
